@@ -1,7 +1,0 @@
-<?php
-namespace GroupC\Data\Tests;
-
-class LinkedNodeTest extends \PHPUnit_Framework_TestCase
-{
-
-}
