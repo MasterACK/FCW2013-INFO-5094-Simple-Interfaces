@@ -15,7 +15,7 @@ defined('IN_LIB') or die;
  * The ILinkedNode interface is implemented by all nodes that are to be linked.
  *
  * @author Aaron McGowan <a_mcgowan43905@fanshawec.ca>
- * @package McGowanCorp\Data
+ * @package Data
  * @version 1.0.0
  */
 interface ILinkedNode extends INode

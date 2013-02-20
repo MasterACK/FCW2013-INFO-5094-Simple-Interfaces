@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="GroupC/Data/ILinkedNode.php" hash="ed03c4153e3ee484ca4362ac5ef949c5" package="Default">
+    <docblock line="2">
+      <description>This file is part of the Data package.</description>
+      <long-description>&lt;p&gt;For full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="GroupC\Data" line="21" package="Data">
+      <name>ILinkedNode</name>
+      <full_name>\GroupC\Data\ILinkedNode</full_name>
+      <extends>\GroupC\Data\INode</extends>
+      <docblock line="14">
+        <description>The ILinkedNode interface is implemented by all nodes that are to be linked.</description>
+        <long-description></long-description>
+        <tag line="14" name="author" description="Aaron McGowan &lt;a_mcgowan43905@fanshawec.ca&gt;"/>
+        <tag line="14" name="package" description="Data"/>
+        <tag line="14" name="version" description="1.0.0"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="29" package="Data">
+        <name>getNext</name>
+        <full_name>getNext</full_name>
+        <docblock line="23">
+          <description>Returns the next ILinkedNode.</description>
+          <long-description></long-description>
+          <tag line="23" name="access" description="public"/>
+          <tag line="23" name="return" description="Returns the next ILinkedNode instance if it exists, otherwise returns NULL." type="\GroupC\Data\ILinkedNode|null">
+            <type by_reference="false">\GroupC\Data\ILinkedNode</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="40" package="Data">
+        <name>setNext</name>
+        <full_name>setNext</full_name>
+        <docblock line="31">
+          <description>Sets the next ILinkedNode instance.</description>
+          <long-description>&lt;p&gt;The &lt;code&gt;next&lt;/code&gt; ILinkedNode should be the ILinkedNode instance that comes after
+this instance within a List.&lt;/p&gt;</long-description>
+          <tag line="31" name="access" description="public"/>
+          <tag line="31" name="param" description="The ILinkedNode instance that is next." type="\GroupC\Data\ILinkedNode" variable="$next">
+            <type by_reference="false">\GroupC\Data\ILinkedNode</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$next</name>
+          <default></default>
+          <type>\GroupC\Data\ILinkedNode</type>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="GroupC/Data/IDoublyLinkedNode.php" hash="a3b77984909c4f1a19c70e77e1ae354b" package="Default">
+    <docblock line="2">
+      <description>This file is part of the Data package.</description>
+      <long-description>&lt;p&gt;For full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="GroupC\Data" line="26" package="Data">
+      <name>IDoublyLinkedNode</name>
+      <full_name>\GroupC\Data\IDoublyLinkedNode</full_name>
+      <extends>\GroupC\Data\ILinkedNode</extends>
+      <docblock line="15">
+        <description>The IDoublyLinkedNode interface is implemented by doubly linked nodes.</description>
+        <long-description>&lt;p&gt;IDoublyLinkedNodes have knowledge of both the next and previous nodes within
+a specific sequence or list. The ILinkedNode interface only knows
+of the next node in the sequence.&lt;/p&gt;</long-description>
+        <tag line="15" name="author" description="Aaron McGowan &lt;a_mcgowan43905@fanshawec.ca&gt;"/>
+        <tag line="15" name="package" description="Data"/>
+        <tag line="15" name="version" description="1.0.0"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="35" package="Data">
+        <name>getPrevious</name>
+        <full_name>getPrevious</full_name>
+        <docblock line="28">
+          <description>Returns the previously linked node.</description>
+          <long-description></long-description>
+          <tag line="28" name="access" description="public"/>
+          <tag line="28" name="return" description="Returns the previously linked node. Will return null&#10;  if no previous node exists." type="\GroupC\Data\IDoublyLinkedNode|null">
+            <type by_reference="false">\GroupC\Data\IDoublyLinkedNode</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="43" package="Data">
+        <name>setPrevious</name>
+        <full_name>setPrevious</full_name>
+        <docblock line="37">
+          <description>Sets the previous node.</description>
+          <long-description></long-description>
+          <tag line="37" name="access" description="public"/>
+          <tag line="37" name="param" description="The previously linked node." type="\GroupC\Data\IDoublyLinkedNode" variable="$previous">
+            <type by_reference="false">\GroupC\Data\IDoublyLinkedNode</type>
+          </tag>
+        </docblock>
+        <argument line="43">
+          <name>$previous</name>
+          <default></default>
+          <type>\GroupC\Data\IDoublyLinkedNode</type>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="GroupC/Data/Node.php" hash="0679dc69631d12489164f2c4a5579bc5" package="Data">
+    <docblock line="2">
+      <description>INode</description>
+      <long-description></long-description>
+      <tag line="2" name="package" description="Data"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="GroupC\Data" line="18" package="Default">
+      <extends/>
+      <implements>\GroupC\Data\INode</implements>
+      <name>Node</name>
+      <full_name>\GroupC\Data\Node</full_name>
+      <docblock line="11">
+        <description>Node</description>
+        <long-description></long-description>
+        <tag line="11" name="version" description="1.0"/>
+        <tag line="11" name="author" description="Group C"/>
+        <tag line="11" name="copyright" description="Group C 2013"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="24" namespace="GroupC\Data" package="Default">
+        <name>$key</name>
+        <default></default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag line="20" name="access" description="private"/>
+          <tag line="20" name="var" description="Index of current node" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="31" namespace="GroupC\Data" package="Default">
+        <name>$value</name>
+        <default></default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag line="26" name="access" description="private"/>
+          <tag line="26" name="var" description="Value of current node" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="41" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="33">
+          <description>Constructor</description>
+          <long-description></long-description>
+          <tag line="33" name="access" description="public"/>
+          <tag line="33" name="param" description="Sets the key" type="int" variable="$key">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="33" name="param" description="Sets the value" type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="33" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="41">
+          <name>$key</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="41">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="53" package="Default">
+        <name>getKey</name>
+        <full_name>getKey</full_name>
+        <docblock line="47">
+          <description>Returns the key value for this node.</description>
+          <long-description></long-description>
+          <tag line="47" name="access" description="public"/>
+          <tag line="47" name="return" description="Returns the key value." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="64" package="Default">
+        <name>setKey</name>
+        <full_name>setKey</full_name>
+        <docblock line="58">
+          <description>Sets the key value for this node.</description>
+          <long-description></long-description>
+          <tag line="58" name="access" description="public"/>
+          <tag line="58" name="param" description="The key value." type="mixed" variable="$key">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="64">
+          <name>$key</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="76" package="Default">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="70">
+          <description>Returns the value of this node (the real value assigned).</description>
+          <long-description></long-description>
+          <tag line="70" name="access" description="public"/>
+          <tag line="70" name="return" description="The value." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="87" package="Default">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="81">
+          <description>Sets the value for this node.</description>
+          <long-description></long-description>
+          <tag line="81" name="access" description="public"/>
+          <tag line="81" name="param" description="The value." type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="87">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="GroupC/Data/DoublyLinkedNode.php" hash="4c165cfe008cdf6f178c2096f3250d99" package="Data">
+    <docblock line="3">
+      <description>IDoublyLinkedNode</description>
+      <long-description></long-description>
+      <tag line="3" name="package" description="Data"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="GroupC\Data" line="19" package="Default">
+      <extends>\GroupC\Data\LinkedNode</extends>
+      <implements>\GroupC\Data\IDoublyLinkedNode</implements>
+      <name>DoublyLinkedNode</name>
+      <full_name>\GroupC\Data\DoublyLinkedNode</full_name>
+      <docblock line="12">
+        <description>DoublyLinkedNode</description>
+        <long-description></long-description>
+        <tag line="12" name="version" description="1.0"/>
+        <tag line="12" name="author" description="Group C"/>
+        <tag line="12" name="copyright" description="Group C 2013"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="25" namespace="GroupC\Data" package="Default">
+        <name>$previous</name>
+        <default>null</default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+          <tag line="21" name="access" description="private"/>
+          <tag line="21" name="var" description="holds reference to previous node" type="\GroupC\Data\IDoublyLinkedNode">
+            <type by_reference="false">\GroupC\Data\IDoublyLinkedNode</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="34" package="Default">
+        <name>getPrevious</name>
+        <full_name>getPrevious</full_name>
+        <docblock line="27">
+          <description>Returns the previously linked node.</description>
+          <long-description></long-description>
+          <tag line="27" name="access" description="public"/>
+          <tag line="27" name="return" description="Returns the previously linked node. Will return null&#10; if no previous node exists." type="\GroupC\Data\IDoublyLinkedNode|null">
+            <type by_reference="false">\GroupC\Data\IDoublyLinkedNode</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="45" package="Default">
+        <name>setPrevious</name>
+        <full_name>setPrevious</full_name>
+        <docblock line="39">
+          <description>Sets the previous node.</description>
+          <long-description></long-description>
+          <tag line="39" name="access" description="public"/>
+          <tag line="39" name="param" description="The previously linked node." type="\GroupC\Data\IDoublyLinkedNode" variable="$previous">
+            <type by_reference="false">\GroupC\Data\IDoublyLinkedNode</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$previous</name>
+          <default></default>
+          <type>\GroupC\Data\IDoublyLinkedNode</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="GroupC/Data/LinkedNode.php" hash="ab3eaac315b4dbc196b4ea706416e8a4" package="Data">
+    <docblock line="3">
+      <description>ILinkedNode</description>
+      <long-description></long-description>
+      <tag line="3" name="package" description="Data"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="GroupC\Data" line="20" package="Default">
+      <extends>\GroupC\Data\Node</extends>
+      <implements>\GroupC\Data\ILinkedNode</implements>
+      <name>LinkedNode</name>
+      <full_name>\GroupC\Data\LinkedNode</full_name>
+      <docblock line="13">
+        <description>LinkedNode</description>
+        <long-description></long-description>
+        <tag line="13" name="version" description="1.0"/>
+        <tag line="13" name="author" description="Group C"/>
+        <tag line="13" name="copyright" description="Group C 2013"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="27" namespace="GroupC\Data" package="Default">
+        <name>$next</name>
+        <default>null</default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+          <tag line="23" name="access" description="private"/>
+          <tag line="23" name="var" description="Hold the refernce to the next node" type="\GroupC\Data\ILinkedNode">
+            <type by_reference="false">\GroupC\Data\ILinkedNode</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="35" package="Default">
+        <name>getNext</name>
+        <full_name>getNext</full_name>
+        <docblock line="29">
+          <description>Returns the next ILinkedNode.</description>
+          <long-description></long-description>
+          <tag line="29" name="access" description="public"/>
+          <tag line="29" name="return" description="Returns the next ILinkedNode instance if it exists, otherwise returns NULL." type="\GroupC\Data\ILinkedNode|null">
+            <type by_reference="false">\GroupC\Data\ILinkedNode</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="49" package="Default">
+        <name>setNext</name>
+        <full_name>setNext</full_name>
+        <docblock line="40">
+          <description>Sets the next ILinkedNode instance.</description>
+          <long-description>&lt;p&gt;The &lt;code&gt;next&lt;/code&gt; ILinkedNode should be the ILinkedNode instance that comes after
+this instance within a List.&lt;/p&gt;</long-description>
+          <tag line="40" name="access" description="public"/>
+          <tag line="40" name="param" description="The ILinkedNode instance that is next." type="\GroupC\Data\ILinkedNode" variable="$next">
+            <type by_reference="false">\GroupC\Data\ILinkedNode</type>
+          </tag>
+        </docblock>
+        <argument line="49">
+          <name>$next</name>
+          <default></default>
+          <type>\GroupC\Data\ILinkedNode</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="GroupC/Data/INode.php" hash="cb0eafe3a9ea0582d6d6c7166ee0e34f" package="Default">
+    <docblock line="2">
+      <description>This file is part of the Data package.</description>
+      <long-description>&lt;p&gt;For full copyright and license information, please view the LICENSE
+file that was distributed with this source code.&lt;/p&gt;</long-description>
+    </docblock>
+    <interface namespace="GroupC\Data" line="22" package="Data">
+      <name>INode</name>
+      <full_name>\GroupC\Data\INode</full_name>
+      <docblock line="15">
+        <description>The base node interface that defines the basic interface methods.</description>
+        <long-description></long-description>
+        <tag line="15" name="author" description="Aaron McGowan &lt;a_mcgowan43905@fanshawec.ca&gt;"/>
+        <tag line="15" name="package" description="Data"/>
+        <tag line="15" name="version" description="1.0.0"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="30" package="Data">
+        <name>getKey</name>
+        <full_name>getKey</full_name>
+        <docblock line="24">
+          <description>Returns the key value for this node.</description>
+          <long-description></long-description>
+          <tag line="24" name="access" description="public"/>
+          <tag line="24" name="return" description="Returns the key value." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="38" package="Data">
+        <name>setKey</name>
+        <full_name>setKey</full_name>
+        <docblock line="32">
+          <description>Sets the key value for this node.</description>
+          <long-description></long-description>
+          <tag line="32" name="access" description="public"/>
+          <tag line="32" name="param" description="The key value." type="mixed" variable="$key">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="38">
+          <name>$key</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="46" package="Data">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="40">
+          <description>Returns the value of this node (the real value assigned).</description>
+          <long-description></long-description>
+          <tag line="40" name="access" description="public"/>
+          <tag line="40" name="return" description="The value." type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="GroupC\Data" line="54" package="Data">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="48">
+          <description>Sets the value for this node.</description>
+          <long-description></long-description>
+          <tag line="48" name="access" description="public"/>
+          <tag line="48" name="param" description="The value." type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="54">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="bootstrap.php" hash="cc02f9c60b537d3b635cc8abc4d0e6ba" package="Default">
+    <include line="8" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <constant namespace="global" line="3" package="Default">
+      <name>IN_LIB</name>
+      <full_name>\IN_LIB</full_name>
+      <value>true</value>
+    </constant>
+    <constant namespace="global" line="5" package="Default">
+      <name>ROOT_PATH</name>
+      <full_name>\ROOT_PATH</full_name>
+      <value>realpath(dirname(__FILE__)) . DIRECTORY_SEPARATOR</value>
+    </constant>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file bootstrap.php</error>
+    </parse_markers>
+  </file>
+  <file path="SplLoader.php" hash="c5c85f2729c6c00052864440d81aed6c" package="Default">
+    <include line="222" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="true" abstract="false" namespace="global" line="10" package="Default">
+      <extends/>
+      <name>SplLoader</name>
+      <full_name>\SplLoader</full_name>
+      <docblock line="2">
+        <description>SplLoader</description>
+        <long-description>&lt;p&gt;An implementation for PHP's SPL autoloading functionality.
+This implementation is specific to this framework, however, can easily be ported.&lt;/p&gt;</long-description>
+        <tag line="2" name="version" description="1.0"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
+        <name>$_loaded_items</name>
+        <default>array()</default>
+      </property>
+      <property final="false" static="false" visibility="private" line="13" namespace="global" package="Default">
+        <name>$_include_paths</name>
+        <default>array()</default>
+      </property>
+      <property final="false" static="false" visibility="private" line="15" namespace="global" package="Default">
+        <name>$_dir_sep</name>
+        <default></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="16" namespace="global" package="Default">
+        <name>$_php_ext</name>
+        <default></default>
+      </property>
+      <property final="false" static="false" visibility="private" line="17" namespace="global" package="Default">
+        <name>$_ns_sep</name>
+        <default></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="33" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="19">
+          <description>__construct</description>
+          <long-description>&lt;p&gt;Creates a new instance of the SplLoader class. It is important to note that
+during instantiation this instance is automatically registered as the
+autoload callback using the spl_autoload_register.&lt;/p&gt;</long-description>
+          <tag line="19" name="access" description="public"/>
+          <tag line="19" name="param" description="Contains the directory separator. If not provided, DIRECTORY_SEPARATOR is used." type="string" variable="$dir_sep">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="19" name="param" description="Contains a generic file extension to use for including purposes of PHP files." type="string" variable="$php_ext">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="19" name="param" description="Contains the namespace separator. If not provided, &quot;\\&quot; is used." type="string" variable="$ns_sep">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="19" name="param" description="Contains an array of default paths to check for including new files." type="array" variable="$include_paths">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="19" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="33">
+          <name>$dir_sep</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$php_ext</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$ns_sep</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$include_paths</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="53" package="Default">
+        <name>register</name>
+        <full_name>register</full_name>
+        <docblock line="44">
+          <description>register</description>
+          <long-description>&lt;p&gt;Registers this instance with the SPL autoloader.&lt;/p&gt;</long-description>
+          <tag line="44" name="access" description="public"/>
+          <tag line="44" name="param" description="" type="void" variable="">
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="44" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="67" package="Default">
+        <name>unregister</name>
+        <full_name>unregister</full_name>
+        <docblock line="58">
+          <description>unregister</description>
+          <long-description>&lt;p&gt;Unregisters this instance with the SPL autoloader.&lt;/p&gt;</long-description>
+          <tag line="58" name="access" description="public"/>
+          <tag line="58" name="param" description="" type="void" variable="">
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="58" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="82" package="Default">
+        <name>load</name>
+        <full_name>load</full_name>
+        <docblock line="72">
+          <description>load</description>
+          <long-description>&lt;p&gt;Callback method for the SPL autoloader. Used for autoloading
+a specific class or interface given the fully qualified name.&lt;/p&gt;</long-description>
+          <tag line="72" name="access" description="public"/>
+          <tag line="72" name="param" description="Contains the fully qualified name of the item to load." type="string" variable="$class">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="72" name="return" description="Returns true if loaded successfully or already loaded, otherwise returns false." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$class</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="157" package="Default">
+        <name>addIncludePaths</name>
+        <full_name>addIncludePaths</full_name>
+        <docblock line="147">
+          <description>addIncludePaths</description>
+          <long-description>&lt;p&gt;Adds an array of paths to the internal list of
+paths to test for loading items.&lt;/p&gt;</long-description>
+          <tag line="147" name="access" description="public"/>
+          <tag line="147" name="param" description="Contains an array of paths (absolute) to add" type="array" variable="$paths">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="147" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="157">
+          <name>$paths</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="175" package="Default">
+        <name>addIncludePath</name>
+        <full_name>addIncludePath</full_name>
+        <docblock line="165">
+          <description>addIncludePath</description>
+          <long-description>&lt;p&gt;Add a single path to the internal list of
+paths to test for loading items.&lt;/p&gt;</long-description>
+          <tag line="165" name="access" description="public"/>
+          <tag line="165" name="param" description="Contains a single absolute include path to add" type="string" variable="$path">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="165" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="175">
+          <name>$path</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="194" package="Default">
+        <name>removeIncludePath</name>
+        <full_name>removeIncludePath</full_name>
+        <docblock line="184">
+          <description>removeIncludePath</description>
+          <long-description>&lt;p&gt;Removes the specified path from the internal
+list of paths to test for loading items.&lt;/p&gt;</long-description>
+          <tag line="184" name="access" description="public"/>
+          <tag line="184" name="param" description="Contains the path to remove." type="string" variable="$path">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="184" name="return" description="Returns true on success, otherwise false." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="194">
+          <name>$path</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="218" package="Default">
+        <name>_loadItem</name>
+        <full_name>_loadItem</full_name>
+        <docblock line="208">
+          <description>_loadItem</description>
+          <long-description>&lt;p&gt;Used for loading a specific item given the class name &amp;amp; file uri.&lt;/p&gt;</long-description>
+          <tag line="208" name="access" description="private"/>
+          <tag line="208" name="param" description="Contains the class name being loaded." type="string" variable="$class">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="208" name="param" description="Contains a valid file path to the file to load." type="string" variable="$fileuri">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="208" name="return" description="Returns true on success, otherwise false." type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="218">
+          <name>$class</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="218">
+          <name>$fileuri</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file SplLoader.php</error>
+      <error line="12" code="50018">No DocBlock was found for property $_loaded_items</error>
+      <error line="13" code="50018">No DocBlock was found for property $_include_paths</error>
+      <error line="15" code="50018">No DocBlock was found for property $_dir_sep</error>
+      <error line="16" code="50018">No DocBlock was found for property $_php_ext</error>
+      <error line="17" code="50018">No DocBlock was found for property $_ns_sep</error>
+      <notice line="44" code="50013">Parameter  could not be found in register()</notice>
+      <notice line="58" code="50013">Parameter  could not be found in unregister()</notice>
+    </parse_markers>
+  </file>
+  <package name="Data" full_name="Data"/>
+  <package name="Default" full_name="Default"/>
+  <namespace name="GroupC" full_name="GroupC">
+    <namespace name="Data" full_name="GroupC\Data"/>
+  </namespace>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
