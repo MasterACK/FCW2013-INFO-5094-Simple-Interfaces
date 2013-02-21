@@ -33,7 +33,7 @@ interface IDoublyLinkedNode extends ILinkedNode
      *   if no previous node exists.
      */
     public function getPrevious();
-    
+
     /**
      * Sets the previous node.
      *

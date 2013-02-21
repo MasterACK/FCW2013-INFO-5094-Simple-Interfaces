@@ -22,14 +22,14 @@ class NodeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('value', $node->getValue());
    }
 
-   public function testSetKey() 
+   public function testSetKey()
    {
         $node = new \GroupC\Data\LinkedNode(0, 'value');
         $node->setKey(10);
         $this->assertEquals(10, $node->getKey());
    }
 
-   public function testSetValue() 
+   public function testSetValue()
    {
         $node = new \GroupC\Data\LinkedNode(0, 'value');
         $node->setValue('newValue');

@@ -13,7 +13,7 @@ class DoublyLinkedNodeTest extends \PHPUnit_Framework_TestCase
     public function testGetPrev()
     {
         $doublyLinkedNode = new \GroupC\Data\DoublyLinkedNode(0, 'value');
-        $this->assertEquals(null, $doublyLinkedNode->getNext()); 	
+        $this->assertEquals(null, $doublyLinkedNode->getNext());
     }
 
     public function testSetPrev()
@@ -21,6 +21,6 @@ class DoublyLinkedNodeTest extends \PHPUnit_Framework_TestCase
         $doublyLinkedNode = new \GroupC\Data\DoublyLinkedNode(0, 'value');
         $doublyLinkedNode2 = new \GroupC\Data\DoublyLinkedNode(1, 'value2');
         $doublyLinkedNode->setNext($doublyLinkedNode2);
-        $this->assertTrue($doublyLinkedNode->getNext() instanceof \GroupC\Data\IDoublyLinkedNode); 	   	
+        $this->assertTrue($doublyLinkedNode->getNext() instanceof \GroupC\Data\IDoublyLinkedNode);
     }
 }

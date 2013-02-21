@@ -28,7 +28,7 @@ interface INode
      * @return mixed Returns the key value.
      */
     public function getKey();
-    
+
     /**
      * Sets the key value for this node.
      *
@@ -36,7 +36,7 @@ interface INode
      * @param mixed The key value.
      */
     public function setKey($key);
-    
+
     /**
      * Returns the value of this node (the real value assigned).
      *
@@ -44,7 +44,7 @@ interface INode
      * @return mixed The value.
      */
     public function getValue();
-    
+
     /**
      * Sets the value for this node.
      *

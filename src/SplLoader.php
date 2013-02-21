@@ -11,11 +11,11 @@ final class SplLoader
 {
     private $_loaded_items = array();
     private $_include_paths = array();
-    
+
     private $_dir_sep;
     private $_php_ext;
     private $_ns_sep;
-    
+
     /**
 * __construct
 *
@@ -35,12 +35,12 @@ final class SplLoader
         $this->_dir_sep = null !== $dir_sep ? $dir_sep : DIRECTORY_SEPARATOR;
         $this->_php_ext = null !== $php_ext ? $php_ext : '.php';
         $this->_ns_sep = null !== $ns_sep ? $ns_sep : '\\';
-        
+
         $this->_include_paths = $include_paths;
-        
+
         $this->register();
     }
-    
+
     /**
 * register
 *
@@ -54,7 +54,7 @@ final class SplLoader
     {
         spl_autoload_register(array($this, 'load'));
     }
-    
+
     /**
 * unregister
 *
@@ -68,7 +68,7 @@ final class SplLoader
     {
         spl_autoload_unregister(array($this, 'load'));
     }
-    
+
     /**
 * load
 *
@@ -81,69 +81,54 @@ final class SplLoader
 */
     public function load($class)
     {
-        if( in_array($class, $this->_loaded_items) )
-        {
+        if ( in_array($class, $this->_loaded_items) ) {
             return true;
         }
-        
+
         $fileuri = null;
         $is_found = true;
-        
+
         /* Check if the qualified name contains the namespace separator. If so, we need to parse this ... */
-        if( false !== strpos($class, $this->_ns_sep) )
-        {
+        if ( false !== strpos($class, $this->_ns_sep) ) {
             $pieces = explode($this->_ns_sep, $class);
             $className = array_pop($pieces);
-            
+
             $piecesSize = count($pieces);
             $piecesStr = implode($this->_dir_sep, $pieces);
-            
-            foreach( $this->_include_paths as $lookup_path )
-            {
+
+            foreach ($this->_include_paths as $lookup_path) {
                 $path = $lookup_path . $this->_dir_sep . $piecesStr . $this->_dir_sep;
-                if( !is_dir($path) )
-                {
+                if ( !is_dir($path) ) {
                     continue;
                 }
-                
+
                 $fileuri = $path . $className . $this->_php_ext;
-                if( $this->_loadItem($class, $fileuri) )
-                {
+                if ( $this->_loadItem($class, $fileuri) ) {
                     return true;
-                }
-                else
-                {
+                } else {
                     $fileuri = $path . $className . $this->_dir_sep . $className . $this->_php_ext;
-                    if( $this->_loadItem($class, $fileuri) )
-                    {
+                    if ( $this->_loadItem($class, $fileuri) ) {
                         return true;
                     }
                 }
             }
-        }
-        else
-        {
-            foreach( $this->_include_paths as $lookup_path )
-            {
+        } else {
+            foreach ($this->_include_paths as $lookup_path) {
                 $fileuri = $lookup_path . $this->_dir_sep . $class . $this->_php_ext;
-                if( $this->_loadItem($class, $fileuri) )
-                {
+                if ( $this->_loadItem($class, $fileuri) ) {
                     return true;
-                }
-                else
-                {
+                } else {
                     $fileuri = $lookup_path . $this->_dir_sep . $class . $this->_dir_sep . $class . $this->_php_ext;
-                    if( $this->_loadItem($class, $fileuri) )
-                    {
+                    if ( $this->_loadItem($class, $fileuri) ) {
                         return true;
                     }
                 }
             }
         }
-        
+
         return false;
     }
-    
+
     /**
 * addIncludePaths
 *
@@ -156,12 +141,11 @@ final class SplLoader
 */
     public function addIncludePaths(array $paths)
     {
-        foreach( $paths as $path )
-        {
+        foreach ($paths as $path) {
             $this->addIncludePath($path);
         }
     }
-    
+
     /**
 * addIncludePath
 *
@@ -174,13 +158,12 @@ final class SplLoader
 */
     public function addIncludePath($path)
     {
-        if( !in_array($path, $this->_include_paths) && is_dir($path) )
-        {
+        if ( !in_array($path, $this->_include_paths) && is_dir($path) ) {
             $path = rtrim($path, $this->_dir_sep);
             $this->_include_paths[] = $path;
         }
     }
-    
+
     /**
 * removeIncludePath
 *
@@ -193,18 +176,17 @@ final class SplLoader
 */
     public function removeIncludePath($path)
     {
-        if( in_array($path, $this->_include_paths) )
-        {
+        if ( in_array($path, $this->_include_paths) ) {
             $path = rtrim($path, $this->_dir_sep);
             $flip = array_flip($this->_include_paths);
             unset($this->_include_paths[$flip[$this->_include_paths]]);
-            
+
             return true;
         }
-        
+
         return false;
     }
-    
+
     /**
 * _loadItem
 *
@@ -217,14 +199,13 @@ final class SplLoader
 */
     private function _loadItem($class, $fileuri)
     {
-        if( file_exists($fileuri) && is_file($fileuri) )
-        {
+        if ( file_exists($fileuri) && is_file($fileuri) ) {
             require_once $fileuri;
             $this->_loaded_items[] = $class;
-            
+
             return true;
         }
-        
+
         return false;
     }
 }

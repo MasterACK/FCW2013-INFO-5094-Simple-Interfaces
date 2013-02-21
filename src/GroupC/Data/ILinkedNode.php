@@ -27,7 +27,7 @@ interface ILinkedNode extends INode
      * @return ILinkedNode|null Returns the next ILinkedNode instance if it exists, otherwise returns NULL.
      */
     public function getNext();
-    
+
     /**
      * Sets the next ILinkedNode instance.
      *

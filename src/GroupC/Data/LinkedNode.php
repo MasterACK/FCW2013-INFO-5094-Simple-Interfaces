@@ -1,5 +1,4 @@
 <?php
-
 /**
  *ILinkedNode
  *
@@ -7,25 +6,26 @@
  */
 namespace GroupC\Data;
 
-
+/**
+ *@ignore
+ */
 defined('IN_LIB') or die;
 
-   /**
-    *LinkedNode
-    *
-    *@version 1.0
-    *@author Group C
-    *@copyright Group C 2013
-    */
+/**
+ *LinkedNode
+ *
+ *@version 1.0
+ *@author Group C
+ *@copyright Group C 2013
+ */
 class LinkedNode extends \GroupC\Data\Node implements \GroupC\Data\ILinkedNode
 {
-    
-     /**
+    /**
      *@access private
      *@var ILinkedNode Hold the refernce to the next node
-     */     
+     */
     private $next = null;
-    
+
     /**
      * Returns the next ILinkedNode.
      *
@@ -45,10 +45,9 @@ class LinkedNode extends \GroupC\Data\Node implements \GroupC\Data\ILinkedNode
      *
      * @access public
      * @param ILinkedNode The ILinkedNode instance that is next.
-     */    
+     */
     public function setNext(ILinkedNode $next)
     {
-        //throw exceptions
         $this->next = $next;
     }
 }
